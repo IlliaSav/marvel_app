@@ -26,18 +26,18 @@ class MarvelService {
 
     _transforCharacter = (char) => {
 
-        let desc = ""
-        if (char.description.length === 0) {
-            desc += "This character has no info..."
-        } if (char.description.length >= 225) {
-            console.log(char.description.length)
-            desc += char.description.slice(0, 225) + "..."
-        } else desc += char.description
+        // let desc = ""
+        // if (char.description.length === 0) {
+        //     desc += "This character has no info..."
+        // } if (char.description.length >= 225) {
+        //     console.log(char.description.length)
+        //     desc += char.description.slice(0, 225) + "..."
+        // } else desc += char.description
 
         return {
             name: char.name,
-            description: desc,
-            // description: char.description ? `${char.description.slice(0, 210)}...` : 'There is no description for this character',
+            // description: desc,
+            description: char.description ? `${char.description.slice(0, 210)}...` : 'There is no description for this character',
             thumbnail: char.thumbnail.path + '.' + char.thumbnail.extension,
             homepage: char.urls[0].url,
             wiki: char.urls[1].url
