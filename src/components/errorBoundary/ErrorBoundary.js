@@ -6,6 +6,8 @@ class ErrorBoundary extends Component {
         error: false
     }
 
+    // getDerivedStateFromError OR componentDidCatch
+
     // static getDerivedStateFromError(error) {
     //     return {error: true};
     // }
