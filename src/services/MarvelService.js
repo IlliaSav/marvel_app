@@ -32,7 +32,7 @@ class MarvelService {
             thumbnail: char.thumbnail.path + '.' + char.thumbnail.extension,
             homepage: char.urls[0].url,
             wiki: char.urls[1].url,
-            comics: char.comics.items ? char.comics.items.slice(0, 10) : char.comics.items
+            comics: char.comics.items.slice(0, 10)
         }
     }
 }
