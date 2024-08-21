@@ -26,15 +26,59 @@ const CharList = (props) => {
             .then(onCharListLoaded)
     }
     
+    // Default way
+
+    // const onCharListLoaded = async (newCharList) => {
+    //     let ended = false;
+    //     if (newCharList.length < 9) {
+    //         ended = true;
+    //     }
+    //     setCharList([...charList, ...newCharList]);
+    //     setNewItemLoading(false);
+    //     setOffset(offset + 9);
+    //     setCharEnded(ended)
+    // }
+
+    // Recursion way
+
+    // const onCharListLoaded = (newCharList) => {
+    //     let ended = false;
+    //     if (newCharList.length < 9) {
+    //         ended = true;
+    //     }
+ 
+    //     const addChar = (index) => {
+    //         if (index < newCharList.length) {
+    //             setCharList(charList => [...charList, newCharList[index]]);
+    //             setTimeout(() => addChar(index + 1), 1000);
+    //         } else {
+    //             setNewItemLoading(false);
+    //             setOffset(offset => offset + newCharList.length);
+    //             setCharEnded(ended);
+    //         }
+    //     };
+    
+    //     addChar(0);
+    // }
+
+    // Delay way
+
     const onCharListLoaded = async (newCharList) => {
         let ended = false;
         if (newCharList.length < 9) {
             ended = true;
         }
-        setCharList([...charList, ...newCharList]);
+ 
+        const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
+ 
+        for (let char of newCharList) {
+            await delay(500);
+            setCharList(charList => [...charList, char]);
+        }
+ 
         setNewItemLoading(false);
         setOffset(offset + 9);
-        setCharEnded(ended)
+        setCharEnded(ended);
     }
 
     const itemRefs = useRef([]);
