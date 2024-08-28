@@ -5,6 +5,7 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import useMarvelService from '../../services/MarvelService';
 import Spinner from '../spinner/Spinner';
 import ErrorMessage from '../errorMessage/ErrorMessage';
+import InfoBanner from '../infoBanner/InfoBanner';
 
 import './charList.scss';
 
@@ -13,7 +14,7 @@ const setContent = (process, items, newItemLoading) => {
         case 'waiting':
             return <Spinner/>;
         case 'loading':
-            return newItemLoading ? items : <Spinner/>;
+            return newItemLoading ? items : <InfoBanner/>;
         case 'confirmed':
             return items;
         case 'error':

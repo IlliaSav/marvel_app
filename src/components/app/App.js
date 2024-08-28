@@ -16,7 +16,7 @@ const App = () => {
     return (
         <Router>
             <div className="app">
-                <AppHeader/>
+                <AppHeader/> 
                 <main>
                     <Suspense fallback={<Spinner/>}>
                         <Routes>

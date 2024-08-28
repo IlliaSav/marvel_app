@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Spinner from '../spinner/Spinner';
 import ErrorMessage from '../errorMessage/ErrorMessage';
 import useMarvelService from '../../services/MarvelService';
+import InfoBanner from '../infoBanner/InfoBanner';
 
 import './comicsList.scss';
 
@@ -12,7 +13,7 @@ const setContent = (process, Component, newItemLoading) => {
         case 'waiting':
             return <Spinner/>;
         case 'loading':
-            return newItemLoading ? <Component/> : <Spinner/>;
+            return newItemLoading ? <Component/> : <InfoBanner/>;
         case 'confirmed':
             return <Component/>;
         case 'error':
