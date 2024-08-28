@@ -4,20 +4,15 @@ import Spinner from '../spinner/Spinner';
 import './popup.scss';
 
 const InfoBanner = () => {
-    
-    // <Popup trigger={<button className="button"> Info </button>} modal>
-    //     <span> Note that this is a test project and uses a third-party API (Marvel). Therefore, the speed of loading characters and comics depends only on the server, which unfortunately responds very slowly (~30 sec).
-    //     Thank you for being patient! </span>
-    // </Popup>
     return (
-        // <div>Note that this is a test project and uses a third-party API (Marvel). Therefore, the speed of loading characters and comics depends only on the server, which unfortunately responds very slowly (~30 sec).
-        // Thank you for being patient!</div>
-        <div className='modal'>
+        <div>
         <Formik>
             <Form>
-                <label className='label' htmlFor="charName">Note that this is a test project and uses a third-party API (Marvel). Therefore, the speed of loading characters and comics depends only on the server, which unfortunately responds very slowly (~30 sec).
-                Thank you for being patient!
-                </label>
+                <div className='modal'>
+                    <label className='label'>Note!</label>
+                    <h2 className='title'>This is a test project and uses a third-party API (Marvel). Therefore, the speed of loading characters and comics depends only on the server, which unfortunately responds very slowly (~30 sec).
+                    Thank you for being patient!</h2>
+                </div>
                 <Spinner/>
             </Form>
         </Formik>
